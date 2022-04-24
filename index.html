@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="gazetteer" name="keywords">
+
+    <title>Gazetteer | IT Career Switch Project 1</title>
+
+     <!-- Favicons -->
+    <link href="assets/img/geo.png" rel="icon">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href=https://fonts.googleapis.com>
+    <link rel="preconnect" href=https://fonts.gstatic.com crossorigin>
+    <link href=https://fonts.googleapis.com/css2?family=Cinzel&display=swap rel="stylesheet">
+
+    <!-- Leaflet -->
+
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css />
+    <link rel="stylesheet" href=https://unpkg.com/leaflet@1.7.1/dist/leaflet.css integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src=https://unpkg.com/leaflet@1.7.1/dist/leaflet.js integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <link rel="stylesheet" href="assets/css/leaflet.extra-markers.min.css">
+    <link rel="stylesheet" href="assets/dist/easy-button.css">
+    <link rel="stylesheet" href="assets/css/MarkerCluster.css">
+    <link rel="stylesheet" href="assets/css/MarkerCluster.Default.css">
+
+    <script src=https://kit.fontawesome.com/d5c70dd88c.js crossorigin="anonymous"></script>
+    <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
+
+    <link rel="stylesheet" href="assets/dist/easy-button.css">
+   
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Main CSS Files -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/map.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+      <!--preloader-->
+      <div id="preloader"></div>
+
+      <!--nav-->
+
+      <nav class="navbar navbar-expand-sm navbar-light bg-light d-inline-block align-top fixed-top center">
+        <div class="container">
+        <header id="brand" class="d-inline-block align-top">
+          <a class="navbar-brand" id="logo" href="index.html"><img src="assets/img/geo.png" class="img-responsive" style="width: 40px;" alt=""></a>
+          <a class="navbar-brand " id="appName" href="index.html"><h1 style="font-size: 1.4em">Gazetteer</h1></a>
+        </header>
+      
+        <div class="collapse navbar-collapse d-inline-block align-items-center justify-content-center center" id="navbarSupportedContent">
+          
+          <form class="form-inline my-2 my-lg-0" id="dropdown">
+            <select class="form-control mr-sm-2 " type="text" placeholder="country" aria-label="Search" id="countrySelect">
+              <option disabled selected value="Select a Country">Select a Country</option>
+            </select>
+          </form>
+        </div>
+      
+      </div>
+      </nav>
+        
+    
+    <!--map-->
+    <div id="map" tabindex="1"></div>
+
+       <!--country information-->
+       <div class="modal" tabindex="-1" role="dialog" id="countryModal">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="modal-title w-100">Country Modal</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body bodyView row justify-content-center w-100">
+
+            <table class="text-center" id="info">
+                <tr>
+                  <td class="key card-title">Country:</td>
+                  <td class="value text-center mx-auto" style="width: 400px; text-decoration: none; font-size: 1.5em;" id="countryName"></td>
+              </tr>
+              <tr>
+                  <td class="key card-title">Population:</td>
+                  <td class="value text-center" id="population"></td>
+              </tr>
+              <tr>
+                <td class="key">Languages:</td>
+                <td class="value text-center" id="lang"></td>
+              </tr>
+              <tr>
+                <td class="key card-title">Currency:</td>
+                <td class="value text-center" id="currencyName"></td>
+              </tr>
+              <tr>
+                <td class="key card-title">Current Rate (to USD):</td>
+                <td class="value text-center" id="currentRate"></td>
+              </tr>
+            </table>
+
+            </div>
+            <div class="modal-footer">
+              
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      
+     <!--wikipedia-->
+    <div class="modal" tabindex="-1" role="dialog" id="wikiModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title w-100">Wikipedia Modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body bodyView text-center">
+            <h3 class="w-100" id="wikiTitle"></h3>
+            <p class="w-100"id="wikiInfo"></p>
+          </div>
+          <div class="modal-footer">
+           
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!--weather-->
+    <div class="modal" tabindex="-1" role="dialog" id="weatherModal">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title w-100">Weather Modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body bodyView">
+            <table class="">
+              <tr class="text-center">
+                  <td class="key ">Description:</td>
+                  <td class="value w-80 mx-auto" style="width: 400px;" id="weather"></td>
+              </tr>
+              <tr class="text-center">
+                  <td class="key">Temperature:</td>
+                  <td class="value w-80" id="temperature"></td>
+              </tr>
+              <tr class="text-center">
+                <td class="key ">Wind:</td>
+                <td class="value w-80" id="wind"></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+           
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!--news-->
+    <div class="modal" tabindex="-1" role="dialog" id="newsModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title w-100">News Modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body bodyView text-center">
+            <h3 class="w-100" id="newsTitle"></h3>
+            <p class="w-100" id="newsContent"></p>
+            <p class="w-100" id="newsLink"></p>
+          <br>
+            <h3 class="w-100" id="newsTitle2"></h3>
+            <p class="w-100" id="newsContent2"></p>
+            <p class="w-100" id="newsLink2"></p>
+          </div>
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+    <!-- JQuery-->
+    <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
+
+    <!--Popper-->
+    <script src=https://unpkg.com/@popperjs/core@2/dist/umd/popper.js></script>
+
+    <script src=https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="assets/js/leaflet.extra-markers.min.js"></script>
+    <script src="assets/dist/easy-button.js"></script>
+    <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
+    <script src="assets/js/Leaflet.Marker.SlideTo.js"></script> 
+    <script src="assets/js/leaflet.markercluster.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    
+
+   
+
+</body>
+</html>

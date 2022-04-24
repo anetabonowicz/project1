@@ -1,0 +1,269 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: static;
+}
+
+
+/* nav bar */
+nav {
+    border-bottom: 1px solid rgb(227, 227, 213);
+}
+
+div > img {
+    width: 40px;
+    height: 40px;
+    
+}
+ 
+.container {
+    justify-items: space-around;
+}
+
+#navbarSupportedContent {
+    display: inline-flex;
+}
+
+#dropdown {
+    margin-top: 1.2em;
+    margin-left: 55%;
+    
+}
+
+#logo {
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 5;
+}
+
+#appName {
+   margin-top: -1%;
+   margin-left: 5%;
+   color: black;
+   font-family: Cinzel;
+}
+
+.modal {
+    display: flexbox;
+    justify-content: center;
+}
+
+.modal-header, .modal-title {
+    background-color: rgb(165, 231, 231);
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+.modal-body {
+    font-size: 1em;
+}
+
+.value {
+    align-items: center;
+    justify-self: center;
+    
+}
+
+.modal-footer {
+    background-color: rgb(165, 231, 231); 
+}
+
+table, tbody, tr, td {
+    vertical-align: middle;
+
+}
+
+@media only screen and (max-width: 449px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #dropdown {
+        width: 40%;
+        margin-top: 25px;
+        margin-right: 0px;
+        margin-left: 5%;
+    }
+
+    #countrySelect{
+        width: 50%;
+        margin-right: 0.5px;
+        
+    }
+
+    #brand {
+        width: auto;
+    }
+
+    #navbarSupportedContent {
+        width: 50%;
+        margin-left: 0%;
+    }
+
+    #dropdown {
+        width: 100%;
+        margin-top: 25px;
+        margin-right: 0px;
+        margin-left: 5%;
+    }
+
+    #countrySelect{
+        width: 100%;
+        margin-right: 0.5px;
+        
+    }
+    
+    #logo {
+        display: none;
+    }
+    
+    #appName {
+        width: min-content;
+        margin-top: -2%;
+        margin-left: -2px;
+        color: black;
+        font-family: Cinzel;
+    }
+    
+  }
+
+
+@media only screen and (min-width: 450px) and (max-width: 780px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        font-weight: 100vw;
+    }
+
+    #dropdown {
+        width: 60%;
+        margin-top: 25px;
+        margin-right: 0px;
+        margin-left: 5%;
+    }
+
+    #countrySelect{
+        width: 100%;
+        margin-right: 0.5px;
+        
+    }
+
+    #brand {
+        width: auto;
+    }
+
+    #navbarSupportedContent {
+        width: 60%;
+        margin-left: 0%;
+    }
+
+    #dropdown {
+        width: 100%;
+        margin-top: 25px;
+        margin-right: 0px;
+        margin-left: 5%;
+    }
+
+    #countrySelect{
+        width: 100%;
+        margin-right: 0.5px;
+        
+    }
+    
+    #logo {
+        display: none;
+    }
+    
+    #appName {
+        width: min-content;
+        margin-top: -2%;
+        margin-left: -2px;
+        color: black;
+        font-family: Cinzel;
+    }
+    
+  }
+
+  @media only screen and (min-width: 781px) and (max-width: 850px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #dropdown {
+        width: 60%;
+        float: right;
+        margin-top: 25px;
+        margin-right: 0px;
+        margin-left: 5%;
+    }
+
+    #countrySelect{
+        margin-right: 0px;
+        
+    }
+
+    #appName {
+        width: min-content;
+        margin-top: -1%;
+        margin-left: 25px;
+        margin-right: 3%;
+        color: black;
+        font-family: Cinzel;
+    }
+  }
+
+/* preloder */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+}
+
+#preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #f2f2f2;
+    border-top: 6px solid #56829e ;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: animate-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+    0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    }
+
+    100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-preloader {
+    0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    }
+    100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    }
+}
