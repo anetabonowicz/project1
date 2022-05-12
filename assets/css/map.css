@@ -1,11 +1,9 @@
+
 /* map */
-
 #map { 
-    height: 90vh; 
-    z-index: 100;
+    width: 100%;
+    height: 100vh;
  }
-
-
  /* card  */
  .info {
     width: 100%;
@@ -16,11 +14,17 @@
 #wikipedia, #wikiInfo, #link {
     max-width: 100%;
 }
-
 #wikibutton {
     z-index: -1;
 }
 
+#wikiImg {
+    display: flex;
+    justify-items: center;
+    width: 50px;
+    height: auto;
+}
+/*
 table, tbody, tr, td, span{
     max-width: 100%;
     overflow: auto;
@@ -31,4 +35,6 @@ table, tbody, tr, td, span{
     font-weight: bold;
     font-size: 2em;
     text-decoration: underline;
-}
+}*/
+
+ 

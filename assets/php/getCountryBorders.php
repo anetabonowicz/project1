@@ -1,5 +1,5 @@
 <?php 
-     if(isset($_POST['isoCode3'])) {
+     if(isset($_POST['isoCode2'])) {
    
     $executionStartTime = microtime(true);
 
@@ -8,11 +8,11 @@
     $country = [];
 
     foreach ($countryInfo['features'] as $feature) {
-        if($_POST['isoCode3'] == $feature['properties']['iso_a3']) {
+        if($_POST['isoCode2'] == $feature['properties']['iso_a2']) {
             $temp = null;
 
             $temp['name'] = $feature["properties"]['name'];
-            $temp['iso2'] = $feature['properties']['iso_a2'];
+            $temp['countryCode2'] = $feature['properties']['iso_a2'];
             $temp['countryCode'] = $feature["properties"]['iso_a3'];
             $temp['geometry'] = $feature['geometry'];
             /*
@@ -51,7 +51,7 @@
     foreach ($countryInfo['features'] as $feature) {
         $temp = null;
         
-        $temp['iso2'] = $feature['properties']['iso_a2'];
+        $temp['countryCode2'] = $feature['properties']['iso_a2'];
         $temp['countryCode'] = $feature['properties']['iso_a3'];
         $temp['name'] = $feature['properties']['name'];
         $temp['geometry'] = $feature['geometry'];

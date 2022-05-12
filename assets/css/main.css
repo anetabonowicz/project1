@@ -1,225 +1,324 @@
-body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    position: static;
-}
 
-
-/* nav bar */
-nav {
-    border-bottom: 1px solid rgb(227, 227, 213);
+html,body {
+    width: 100%;
+    height: 100%;
 }
 
 div > img {
     width: 40px;
     height: 40px;
-    
 }
+
  
-.container {
-    justify-items: space-around;
-}
 
-#navbarSupportedContent {
-    display: inline-flex;
-}
-
-#dropdown {
-    margin-top: 1.2em;
-    margin-left: 55%;
-    
-}
-
-#logo {
-    width: 25%;
-    position: fixed;
+/* .container-fluid {
+    margin-left: 0px;
+    height: 100%;
+    width: 100% !important;
+    display: inline;
+    justify-items: center;
+    position: relative;
     top: 0;
-    left: 5;
+    right: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 1 !important;
+} */
+
+
+select{
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    left: 40vw;
 }
+#logo {
+    width: 30px;
+    margin-top: -1%;
+    margin-left: 15px;
+}
+
+ 
 
 #appName {
-   margin-top: -1%;
-   margin-left: 5%;
+   margin-top: 0%;
+   margin-left: 0%;
    color: black;
    font-family: Cinzel;
 }
 
-.modal {
-    display: flexbox;
-    justify-content: center;
+/* MODALS  */
+#countryName {
+    text-decoration: none;
 }
 
-.modal-header, .modal-title {
-    background-color: rgb(165, 231, 231);
+/* wiki modal  */
+#wikiImg {
+    float: left;
+    width: 700px;
+    height: auto;
+    margin-top: 14px;
+    margin-right: 60px;
+}
+
+#wikiInfo {
+    text-align: justify;
+}
+
+#wikiLoop > img {
+    float: left;
+    width: 150px;
+    height: auto;
+    margin-top: 14px;
+    margin-right: 15px;
+}
+
+ 
+
+#wikiLoop > p {
+    text-align: justify;
+}
+
+ 
+
+.small > img {
+    width: 200px;
+    height: auto;
+}
+
+ 
+
+/* weather modal  */
+
+#weather {
     font-size: 1.1em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+ 
+
+#weatherRow {
+    text-align: center;
+    width: 100%;
+    min-height: 173px;
+}
+
+ 
+
+#weatherImg > img {
+    float: left;
+    width: 140px;
+    height: auto;
+}
+
+ 
+
+.icon {
+    width: 18px;
+    height: auto;
+}
+
+#temperature {
+    font-size: 1.8em;
+    font-weight: 750;
+    margin-top: 5px;
+}
+#temperature > span {
+    margin-top: -20px;
+    font-size: 0.7em;
+    font-weight: 500;
+    display: block;
+}
+
+#forecast {
+    width: 100%;
+} 
+
+#forecast > div > h6 {
     font-weight: 300;
+    font-size: 0.9em;
 }
 
-.modal-body {
-    font-size: 1em;
+#forecast > div {
+    display: inline-block;
+    width: 33%;
 }
 
-.value {
-    align-items: center;
-    justify-self: center;
-    
+#forecast > div > img {
+    float: left;
+    width: 65px;
+    height: auto;
 }
 
-.modal-footer {
-    background-color: rgb(165, 231, 231); 
+#forecast > div > div {
+    margin-top: 5%;  
 }
 
-table, tbody, tr, td {
-    vertical-align: middle;
-
+#forecast > div > div > span {
+    display: block;
+    text-align: right;
+    margin-right: 12%;
 }
 
-@media only screen and (max-width: 449px) {
-    body {
-        width: 100vw;
-        height: 100vh;
+#forecast > div > p {
+    text-transform: capitalize;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+/* news modal */
+#newsContent > a,
+#newsContent2 > a,
+#newsContent3 > a {
+    text-decoration: none;
+    color: black;
+}
+
+#newsContent > a:hover,
+#newsContent2 > a:hover,
+#newsContent3 > a:hover  {
+    text-decoration: underline;
+    color: black;
+}
+#newsImg > img,
+#newsImg2 > img,
+#newsImg3 > img {
+    float:left;
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.contentBox {
+    min-height: 150px;
+}
+
+/* MEDIA  */
+
+@media only screen and (max-width: 410px) {
+
+    div.container-fluid {
+        justify-content: center !important;
     }
-
-    #dropdown {
-        width: 40%;
-        margin-top: 25px;
-        margin-right: 0px;
-        margin-left: 5%;
-    }
-
-    #countrySelect{
-        width: 50%;
-        margin-right: 0.5px;
-        
-    }
-
-    #brand {
-        width: auto;
-    }
-
     #navbarSupportedContent {
+       max-width: 50%;
+       justify-self: center;
+    }
+
+    #forecast {
+        padding: 5%;
+    }
+
+    #temperature {
+        margin-top: -5%;
+    }
+}
+
+@media only screen and (max-width: 495px) {
+
+    div.container-fluid {
+        width: 100vw;
+        justify-content: center !important;
+    }
+
+   #logo {
+       display: none;
+   }
+
+   #appName {
+       display: none;
+   }
+
+   #navbarSupportedContent {
+       max-width: 50%;
+       justify-self: center;
+    }
+
+    #weatherImg > img {
+        width: 90px;
+        height: auto;
+    }
+
+    #temperature {
+        text-align: center;
+    }
+
+    #weatherImg > img {
+        margin-top: 5%;
+        float: none;
+    }
+
+    #forecast {
+        width: 100%;
+        text-align: center;
+    }
+
+    #forecast > div {
+        display: inline-block;
         width: 50%;
-        margin-left: 0%;
+        padding: 8px;
     }
 
-    #dropdown {
-        width: 100%;
-        margin-top: 25px;
-        margin-right: 0px;
-        margin-left: 5%;
+    #forecast > div > img {
+        width: 50px;
+        height: auto;
     }
 
-    #countrySelect{
-        width: 100%;
-        margin-right: 0.5px;
-        
+    #forecast > div > p {
+        margin-top: -10px;
     }
-    
-    #logo {
-        display: none;
-    }
-    
-    #appName {
-        width: min-content;
-        margin-top: -2%;
-        margin-left: -2px;
-        color: black;
-        font-family: Cinzel;
-    }
-    
-  }
+}
 
+@media only screen and (min-width: 496px) and (max-width: 780px) {
 
-@media only screen and (min-width: 450px) and (max-width: 780px) {
-    body {
+    .container-fluid {
         width: 100vw;
-        height: 100vh;
-        font-weight: 100vw;
+        margin: 0px;
+        justify-content: center !important;
     }
 
-    #dropdown {
-        width: 60%;
-        margin-top: 25px;
-        margin-right: 0px;
-        margin-left: 5%;
-    }
-
-    #countrySelect{
-        width: 100%;
-        margin-right: 0.5px;
-        
-    }
-
-    #brand {
-        width: auto;
-    }
-
-    #navbarSupportedContent {
-        width: 60%;
-        margin-left: 0%;
-    }
-
-    #dropdown {
-        width: 100%;
-        margin-top: 25px;
-        margin-right: 0px;
-        margin-left: 5%;
-    }
-
-    #countrySelect{
-        width: 100%;
-        margin-right: 0.5px;
-        
-    }
-    
     #logo {
-        display: none;
-    }
-    
-    #appName {
-        width: min-content;
-        margin-top: -2%;
-        margin-left: -2px;
-        color: black;
-        font-family: Cinzel;
-    }
-    
-  }
-
-  @media only screen and (min-width: 781px) and (max-width: 850px) {
-    body {
-        width: 100vw;
-        height: 100vh;
-    }
-
-    #dropdown {
-        width: 60%;
-        float: right;
-        margin-top: 25px;
-        margin-right: 0px;
-        margin-left: 5%;
-    }
-
-    #countrySelect{
-        margin-right: 0px;
-        
+       display: none;
     }
 
     #appName {
-        width: min-content;
-        margin-top: -1%;
-        margin-left: 25px;
-        margin-right: 3%;
-        color: black;
-        font-family: Cinzel;
+       display: none;
+   }
+
+   select {
+       max-width: 30%;
+       justify-items: center;
     }
-  }
+
+   #weatherImg {
+        text-align: center;
+    } 
+
+    #weatherImg > img {
+        float: none;
+        text-align: center;
+        width: 100px;
+    }
+
+    #temperature {
+        display: block;
+        text-align: center;
+    }
+
+    #temperature > span,
+    #temperature > p {
+        white-space: nowrap;
+    }
+}
+
+@media only screen and (min-width: 781px) and (max-width: 844px) {
+
+ 
+
+}
 
 /* preloder */
-
 #preloader {
     position: fixed;
     top: 0;

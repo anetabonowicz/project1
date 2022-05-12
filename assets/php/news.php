@@ -5,7 +5,7 @@
     $iso2 = strtolower($_REQUEST['iso_code2']);
 
 
-    $url='https://newsdata.io/api/1/news?apikey=pub_6453b35629502546da53835386f99669fd65&country=' . $iso2;
+    $url='https://newsdata.io/api/1/news?apikey=pub_69342c93fca47ac873e91cc97f0a1a6d9c79&country=' . $iso2;
 
     $ch = curl_init();
     

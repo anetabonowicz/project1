@@ -2,9 +2,9 @@
 
 	$executionStartTime = microtime(true) / 1000;
 	
-    $url='https://api.openweathermap.org/data/2.5/weather?q=' . $_REQUEST['capital'] . '&units=metric&appid=b31673122b9c90a336f186013c25ffe7';
-	
-	$ch = curl_init();
+    $url='https://api.openweathermap.org/data/2.5/forecast?q=' . $_REQUEST['capital'] . '&units=metric&appid=b31673122b9c90a336f186013c25ffe7';
+    
+    $ch = curl_init();
 
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -20,7 +20,7 @@
 	$output['status']['name'] = "ok";
 	$output['status']['description'] = "success";
 	$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
-	$output['data'] = $decode;
+	$output['data'] = $decode['list'];
 	
 	header('Content-Type: application/json; charset=UTF-8');
 

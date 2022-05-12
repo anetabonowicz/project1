@@ -12,7 +12,7 @@
 	$result = $geocoder->geocode($string); 
 
 	
-	header('Content-Type: application/json; charset=UTF-8');
+	#header('Content-Type: application/json; charset=UTF-8');
 	echo json_encode($result, JSON_UNESCAPED_UNICODE);
 	
 ?>
